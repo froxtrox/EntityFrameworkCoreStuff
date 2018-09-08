@@ -1,0 +1,49 @@
+﻿@page
+@model MyHomeWebsite.Pages.MyWorkExperience.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">ViewData["Title"]</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkExperience[0].experience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkExperience[0].Responsibility)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkExperience[0].SkillGained)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WorkExperience) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillGained)
+            </td>
+            <td>
+                <a href="/myworkexperience/Edit?=@item.ID">Edit</a> |
+                <a href="/myworkexperience/details?=@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+﻿@model WorkExperience
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Model.experience</title>
+</head>
+<body>
+    <h1>@Model.experience</h1>
+    <div>@Model.Responsibility</div>
+    <div>@Model.SkillGained</div>
+    <div>
+        <a asp-page="/Pages/MyWorkExperience/Edit" asp-route-id="@Model.ID">Edit</a>
+    </div>
+    @*<div>@Model.timePeriod.Start_Time</div>
+    <div>@Model.timePeriod.End_Time</div>*@
+</body>
+</html>
